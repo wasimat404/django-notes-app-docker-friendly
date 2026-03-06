@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Notes</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .note {
+            background: white;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .note strong {
+            font-size: 18px;
+        }
+
+        .tag {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .add-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 14px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .add-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h1>DevOps Notes</h1>
+
+<a class="add-btn" href="/admin/notes/note/add/">Add New Note</a>
+
+<br><br>
+
+{% for note in notes %}
+<div class="note">
+    <strong>{{ note.title }}</strong><br><br>
+
+    <b>Command:</b><br>
+    <code>{{ note.command }}</code>
+
+    <br><br>
+
+    <span class="tag"><b>Tag:</b> {{ note.tag }}</span>
+</div>
+
+{% empty %}
+<p>No notes available.</p>
+{% endfor %}
+
+</body>
+</html>
